@@ -1,0 +1,2 @@
+<div class="card hv" data-dept="<%=r.dept%>"><div class="who"><span class="avatar"><%=r.name.split(' ')[0][0]+r.name.split(' ').slice(-1)[0][0]%></span><div><h3><%=r.name%></h3><span class="muted"><%=f(r,'role')%></span></div></div>
+<p class="muted"><%=(r.dept=='danisman'?'':r.dept.split(',').map(d=>D[d]?D[d][lang=='tr'?0:1]:d).join(' · ')+' · ')+gr(r.grade||'')%></p><%if(r.linkedin){%><p><a href="<%=r.linkedin%>" target="_blank" rel="noopener">LinkedIn</a></p><%}%></div>

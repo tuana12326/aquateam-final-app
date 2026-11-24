@@ -1,0 +1,18 @@
+</main>
+<%if(!path.startsWith('/admin')){%>
+<section class="sec alt" id="konum"><div class="wrap">
+<div class="sec-h"><p class="eyebrow"><%=x('Konum','Location')%></p><div class="rule"></div><h2><%=x('Bizi','Find')%> <b><%=x('Bulun','Us')%></b></h2><p><%=x('AquaTeam, Afyon Kocatepe Üniversitesi Ahmet Necdet Sezer Kampüsü’nde çalışır. Haritadan konumu açabilir, yol tarifi alabilirsiniz.','AquaTeam works at the Afyon Kocatepe University Ahmet Necdet Sezer Campus. Open the map or get directions below.')%></p></div>
+<div class="loc"><div class="info"><h3>AquaTeam · AKÜ</h3>
+<dl><dt><%=x('Adres','Address')%></dt><dd><%=x(SITE.address,'Afyon Kocatepe University, Ahmet Necdet Sezer Campus, Afyonkarahisar, Türkiye')%></dd>
+<dt><%=x('E-posta','Email')%></dt><dd><a href="mailto:<%=SITE.email%>"><%=SITE.email%></a></dd>
+<dt><%=x('Takım Kaptanı','Team Captain')%></dt><dd><%=SITE.captain.name%> · <a href="mailto:<%=SITE.captain.email%>"><%=SITE.captain.email%></a></dd>
+<dt><%=x('Koordinatlar','Coordinates')%></dt><dd><%=SITE.lat%>° N, <%=SITE.lng%>° E</dd></dl>
+<div class="row"><a class="btn" href="<%=SITE.mapLink%>" target="_blank" rel="noopener"><%=x('Haritada Aç','Open in Maps')%></a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=<%=SITE.lat%>,<%=SITE.lng%>" target="_blank" rel="noopener"><%=x('Yol Tarifi','Directions')%></a></div></div>
+<iframe src="<%=SITE.mapEmbed%>" title="<%=x('Afyon Kocatepe Üniversitesi Ahmet Necdet Sezer Kampüsü haritası','Afyon Kocatepe University Ahmet Necdet Sezer Campus map')%>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+</div></section><%}%>
+<footer><div class="wrap"><div class="fg"><div><img src="<%=has('logo.png')?'/uploads/logo.png':'/img/logo.png'%>" alt="AquaTeam" style="height:56px;margin-bottom:12px"><h4>AquaTeam</h4><p><%=x('Afyon Kocatepe Üniversitesi mühendislik öğrencilerinden oluşan insansız su altı sistemleri takımı.','An unmanned underwater systems team of Afyon Kocatepe University engineering students.')%></p></div>
+<div><h4><%=x('Proje','Project')%></h4><a href="/systems"><%=x('Sistemler & Yazılım','Systems & Software')%></a><a href="/systems#model"><%=x('3D Model','3D Model')%></a><a href="/missions"><%=x('Görevler & Test','Missions & Tests')%></a><a href="/game"><%=x('Pilotaj Simülasyonu','Pilot Simulator')%></a></div>
+<div><h4><%=x('Kurumsal','Company')%></h4><a href="/sponsor"><%=x('Sponsorluk','Sponsorship')%></a><a href="/sponsor#teklif"><%=x('Teklif Talep Et','Request a Quote')%></a><a href="/team#apply"><%=x('Takıma Katıl','Join the Team')%></a><a href="/media"><%=x('Medya & Basın Kiti','Media & Press Kit')%></a><a href="/contact"><%=x('İletişim','Contact')%></a></div>
+<div><h4><%=x('Bizi Takip Edin','Follow Us')%></h4><%for(const k in SITE.social){%><a href="<%=SITE.social[k]%>" target="_blank" rel="noopener"><%=k%></a><%}%><a href="mailto:<%=SITE.email%>"><%=SITE.email%></a></div></div>
+<div class="copy"><span>© <%=new Date().getFullYear()%> AquaTeam · Afyon Kocatepe Üniversitesi</span><span><a href="/admin"><%=x('Yönetim','Admin')%></a></span></div></div></footer>
+<script src="/js/forms.js" defer></script></body></html>

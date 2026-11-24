@@ -1,0 +1,5 @@
+<%-include('head')%>
+<section class="sec"><div class="wrap" style="max-width:440px"><h1 style="font-size:2rem">Admin</h1>
+<form method="post" class="f"><%if(disabled){%><p class="note err">Yönetici şifresi (ADMIN_PASS) sunucuda tanımlı değil; giriş kapalı.</p><%}else if(q.err){%><p class="note err">Hatalı giriş veya çok fazla deneme.</p><%}%>
+<label>Kullanıcı<input name="u" required autocomplete="username"></label><label>Şifre<input name="p" type="password" required autocomplete="current-password"></label><button type="submit">Giriş</button></form></div></section>
+<%-include('foot')%>

@@ -1,0 +1,9 @@
+<%-include('head')%>
+<div class="ph"><div class="wrap"><p class="eyebrow"><%=x('Kurumsal İletişim','Corporate Contact')%></p><h1><%=x('Bizimle','Get in')%> <span class="acc"><%=x('iletişime geçin','touch')%></span></h1><p><%=x('Sponsorluk, iş birliği, basın veya genel sorularınız için mesaj bırakın; mesajınız doğrudan takım e-posta adresimize ulaşır.','Leave a message for sponsorship, partnerships, press or general questions; it goes straight to the team’s email address.')%></p></div></div>
+<section class="sec"><div class="wrap"><div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:start">
+<div class="grid" style="grid-template-columns:1fr"><div class="card"><p class="eyebrow"><%=x('E-posta','Email')%></p><h3><a href="mailto:<%=SITE.email%>"><%=SITE.email%></a></h3></div>
+<div class="card"><p class="eyebrow"><%=x('Takım Kaptanı','Team Captain')%></p><h3><%=SITE.captain.name%></h3><p><a href="mailto:<%=SITE.captain.email%>"><%=SITE.captain.email%></a></p></div>
+<div class="card"><p class="eyebrow"><%=x('Adres','Address')%></p><p><%=x(SITE.address,'Afyon Kocatepe University, Ahmet Necdet Sezer Campus, Afyonkarahisar, Türkiye')%></p><p><a href="#konum"><%=x('Haritada gör','See on map')%> ↓</a></p></div>
+<div class="card"><p class="eyebrow"><%=x('Sosyal Medya','Social')%></p><p><%for(const k in SITE.social){%><a href="<%=SITE.social[k]%>" target="_blank" rel="noopener" style="margin-right:14px"><%=k%></a><%}%></p></div></div>
+<div><%-include('_form',{kind:'contact',fields:['name','email','message']})%></div></div></div></section>
+<%-include('foot')%>

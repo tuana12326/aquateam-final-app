@@ -1,0 +1,13 @@
+<%const cp=typeof compact!=='undefined'&&compact;const glb=!cp&&has('model.glb');%>
+<%if(glb){%><div class="seg"><button type="button" class="on" data-tab="rep"><%=x('Temsili model (iç yapı)','Representative model (internals)')%></button><button type="button" data-tab="cad"><%=x('CAD modeli (.glb)','CAD model (.glb)')%></button></div><%}%>
+<div id="repwrap"><div class="rov3d<%=cp?' compact':''%>" data-lang="<%=lang%>">
+<div class="rov3d__stage">
+<div class="rov3d__bar"><button type="button" data-inner="0" class="on"><%=x('Dış görünüm','Exterior')%></button><button type="button" data-inner="1"><%=x('İç yapı','Internals')%></button><button type="button" data-act="mini"><%=x('Mini ROV','Mini ROV')%></button><i></i>
+<button type="button" data-view="reset"><%=x('Sıfırla','Reset')%></button><button type="button" data-view="top"><%=x('Üst','Top')%></button><button type="button" data-view="side"><%=x('Yan','Side')%></button><button type="button" data-view="front"><%=x('Ön','Front')%></button><button type="button" data-act="auto"><%=x('Otomatik döndür','Auto-rotate')%></button><button type="button" data-act="zin" aria-label="Zoom in">+</button><button type="button" data-act="zout" aria-label="Zoom out">−</button></div>
+<canvas aria-label="<%=x('CORAL Ana ROV 3D temsili modeli','CORAL Main ROV 3D representative model')%>"></canvas><span class="rov3d__tag" hidden></span>
+<span class="rov3d__note"><%=x('Temsili model · sürükleyerek döndürün · bileşene tıklayın','Representative model · drag to rotate · click a part')%></span></div>
+<aside class="rov3d__side"><div><h3><%=x('Bileşenler','Components')%></h3></div><div class="rov3d__list"></div>
+<div class="rov3d__info" data-hint="<%=x('Bir bileşen seçin: gerçek teknik değerleri burada görünür.','Select a component to see its real specifications here.')%>"></div></aside></div></div>
+<%if(glb){%><div id="cadwrap" hidden><script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script><model-viewer src="/uploads/model.glb" poster="/img/rov.png" camera-controls shadow-intensity="1" style="width:100%;height:560px;background:#0b0e12;border:1px solid var(--bd2);border-radius:8px" alt="CORAL Ana ROV CAD"></model-viewer></div>
+<script>document.querySelectorAll('[data-tab]').forEach(function(b){b.onclick=function(){document.querySelectorAll('[data-tab]').forEach(function(c){c.classList.toggle('on',c===b)});document.getElementById('repwrap').hidden=b.dataset.tab!=='rep';document.getElementById('cadwrap').hidden=b.dataset.tab!=='cad'}})</script><%}%>
+<script src="/js/rov3d.js" defer></script>

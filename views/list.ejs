@@ -1,0 +1,8 @@
+<%-include('head')%>
+<div class="ph"><div class="wrap"><p class="eyebrow"><%=kind=='posts'?x('Güncel','Latest'):x('Havuz & Üretim','Pool & Production')%></p><h1><%if(kind=='posts'){%><%=x('Duyurular &','News &')%> <span class="acc">Blog</span><%}else{%><%=x('Test & geliştirme','Test & development')%> <span class="acc"><%=x('günlüğü','log')%></span><%}%></h1><p><%=kind=='posts'?x('Takımdan tarihli haberler ve duyurular.','Dated news and announcements from the team.'):x('Havuz testleri, sızdırmazlık ve üretim aşamalarından tarihli kısa güncellemeler.','Short dated updates from pool tests, sealing and manufacturing stages.')%></p></div></div>
+<section class="sec"><div class="wrap" style="max-width:900px;margin:0 auto">
+<form class="search" method="get"><input name="s" value="<%=s%>" placeholder="<%=x('Ara…','Search…')%>" maxlength="60" aria-label="<%=x('Ara','Search')%>"><button><%=x('Ara','Search')%></button></form>
+<%if(!rows.length){%><div class="soon"><%=s?x('Sonuç bulunamadı.','No results found.'):x('Henüz kayıt yok.','No entries yet.')%></div><%}%>
+<%for(const r of rows){%><article class="card" style="margin-bottom:14px"><span class="num"><%=r.date%></span><h3 style="font-size:1.3rem"><%=f(r,'title')%></h3><p style="white-space:pre-line"><%=f(r,'body')%></p></article><%}%>
+<%if(kind=='tests'){%><p class="muted"><a href="/missions#matrix"><%=x('7 aşamalı test matrisini inceleyin','See the 7-stage test matrix')%> →</a></p><%}%></div></section>
+<%-include('foot')%>
